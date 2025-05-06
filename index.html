@@ -13,11 +13,10 @@
 
   body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
     display: flex;
     height: 100vh;
     overflow: hidden;
-    color: #111;
   }
 
   .menu-toggle {
@@ -51,7 +50,7 @@
   .sidebar h3 {
     font-size: 16px;
     margin-bottom: 10px;
-    color: #ff7f50; /* 주황색 포인트 */
+    color: #333;
   }
 
   .sidebar ul {
@@ -71,7 +70,7 @@
 
   .sidebar ul li a.active {
     font-weight: bold;
-    color: #ff7f50;
+    color: #333;
   }
 
   .sidebar ul li a:hover {
@@ -92,10 +91,10 @@
   }
 
   .section h2 {
-    border-bottom: 2px solid #ff7f50;
+    border-bottom: 2px solid orange;
     padding-bottom: 5px;
     font-size: 20px;
-    color: #ff7f50;
+    color: orange;
   }
 
   .profile {
@@ -107,7 +106,6 @@
   .highlight {
     font-size: 26px;
     font-weight: bold;
-    color: #111;
   }
 
   .subinfo {
@@ -122,7 +120,7 @@
   }
 
   a {
-    color: #ff7f50;
+    color: #333;
     text-decoration: none;
   }
 
@@ -131,7 +129,7 @@
     padding: 10px;
     background-color: #f0f0f0;
     font-family: monospace;
-    word-break: break-word;
+    word-break: break-all;
   }
 
   @media (max-width: 768px) {
@@ -157,7 +155,7 @@
   }
 </style>
 </head>
-<body style="display: flex;">
+<body>
   <div class="menu-toggle" onclick="toggleMenu()">☰ 메뉴</div>
   <div class="sidebar">
     <h3><a href="#basic">기본 정보</a></h3>
@@ -170,7 +168,7 @@
   </div>
 
   <div class="content">
-    <div class="section" id="basic">
+    <div class="section" id='basic'>
       <div class="profile">
         <div>
           <div class="highlight">양지원 이력서</div>
@@ -191,28 +189,26 @@
       <h2>경력</h2>
       <p><strong>웹사이트 프로젝트</strong> - League Of Legend API를 이용한 전적 및 공략 사이트 / 프로젝트 V.LOL (2024.09 ~ 2024.12, 4개월)</p>
       <p><strong>졸업작품 프로젝트</strong> - 반복되는 맵, 이상현상을 구현한 공포 게임 / 프로젝트 Karma (2025.03 ~ 2025.10, 8개월)</p>
-      <ul>
-        <li>팀장으로서 팀원 6명의 역할 조율 및 모든 작업 관리</li>
-        <li>게임 설계 및 아이디어</li>
-        <li>Unity에서 ProBuilder를 활용해 전체 맵틀 구현</li>
-        <li>Poliigon과 Meshy AI 사이트를 활용해 방 구현</li>
-        <li>시나리오, 트리거, 스크립트, 사운드 등으로 연출 구현</li>
-        <li>시연 영상 제작</li>
-      </ul>
+      <p>- 팀장으로서 팀원 6명의 역할 조율 및 모든 작업 관리</p>
+      <p>- 게임 설계 및 아이디어</p>
+      <p>- Unity에서 ProBuilder를 활용해 전체 맵틀 구현</p>
+      <p>- Poliigon과 Meshy AI사이트를 활용해 방 구현</p>
+      <p>- 시연 영상을 위해 시나리오 설계 및 트리거, 스크립트, 사운드 등으로 연출 구현 후 영상 제작</p>
+      <p></p>
     </div>
 
     <div class="section" id="portpolio">
-      <h2>포트폴리오</h2>
-      <p><strong>Karma (졸업 작품)</strong></p>
-      <div class="url-box">
-        https://github.com/RAMB-02/GDevs
-      </div>
+        <h2>포트폴리오</h2>
+        <p><strong>Karma (졸업 작품)</strong> </p>
+        <div class="url-box">
+            https://github.com/RAMB-02/GDevs
+        </div>
     </div>
 
     <div class="section" id="education">
-      <h2>교육</h2>
-      <p><strong>동양미래대학교</strong> - 컴퓨터소프트웨어공학과 (2021.03 - 2026.02)</p>
-      <p><strong>안산고등학교</strong> - (2018.03 - 2021.02)</p>
+        <h2>교육</h2>
+        <p><strong>동양미래대학교</strong> - 컴퓨터소프트웨어공학과 (2021.03-2026.2)</p>
+        <p><strong>안산고등학교</strong> - (2018.03-2021.2)</p>
     </div>
   </div>
 
@@ -225,6 +221,7 @@
       let current = '';
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
         if (content.scrollTop >= sectionTop - 100) {
           current = section.getAttribute('id');
         }
